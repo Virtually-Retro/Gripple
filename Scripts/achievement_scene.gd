@@ -13,9 +13,8 @@ func _ready() -> void:
 			achievement_banner.texture = load("res://Graphics/Achievement_Fewest_moves.png")
 		3:
 			achievement_banner.texture = load("res://Graphics/Achievement_Best_Time.png")
-
-	if Game_Globals.audio_enabled:
-		SoundManager.play_sound_by_name("achievement.mp3", false)
+	
+	SoundManager.play_sound_by_name("achievement.mp3", false)
 
 
 func _on_timer_timeout() -> void:

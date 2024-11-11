@@ -61,7 +61,7 @@ func set_difficulty() -> void:
 
 
 func set_random_pattern() -> void:
-	pattern_id = randi_range(0,5)
+	pattern_id = randi_range(0,patterns.size())
 		
 	#Easy pattern for debugging when in Godot editor
 	if OS.is_debug_build():
@@ -217,8 +217,7 @@ func _on_game_video_timer_frame_changed() -> void:
 
 
 func _on_game_video_timer_animation_finished() -> void:
-	if Game_Globals.audio_enabled:
-		SoundManager.play_sound_by_name("timerExpired.mp3", false)
+	SoundManager.play_sound_by_name("timerExpired.mp3", false)
 	$TimerExpiredImage.visible = true
 	$TimerExpiredTimer.start()
 	
@@ -239,8 +238,7 @@ func _on_timer_tutorial_timeout() -> void:
 
 func _on_resume_button_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if InputEventMouseButton and event.is_pressed() and event.button_index == 1:
-		if Game_Globals.audio_enabled:
-			SoundManager.play_sound_by_name("mouse-click.mp3", true)
+		SoundManager.play_sound_by_name("mouse-click.mp3", true)
 		$ResumeButton.visible = false
 		$DarkenLayer.visible = false
 		get_tree().paused = false

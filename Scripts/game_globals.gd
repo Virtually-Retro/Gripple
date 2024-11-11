@@ -81,6 +81,7 @@ func load_gamedata() -> void:
 		audio_enabled = true
 		if XmlTools.get_xml_key_data("audio_enabled", file_data) == "false":
 			audio_enabled = false
+		SoundManager.set_sound_enabled(audio_enabled)
 			
 		tutorial_enabled = true
 		if XmlTools.get_xml_key_data("tutorial_enabled", file_data) == "false":
