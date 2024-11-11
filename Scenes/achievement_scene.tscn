@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://buve7pnbupl1r"]
+[gd_scene load_steps=6 format=3 uid="uid://buve7pnbupl1r"]
 
 [ext_resource type="Texture2D" uid="uid://ckb4348v5jhtp" path="res://Graphics/Blank_Background.png" id="1_3wtr8"]
 [ext_resource type="Script" path="res://Scripts/achievement_scene.gd" id="1_lkye7"]
 [ext_resource type="Texture2D" uid="uid://8j1qfbfk4gik" path="res://Graphics/High_Score_Button.png" id="2_g2lkr"]
 [ext_resource type="Texture2D" uid="uid://quq4oi1pfx8t" path="res://Graphics/Achievement_Scene_title.png" id="3_5l0c2"]
 [ext_resource type="Texture2D" uid="uid://d4h314weo568c" path="res://Graphics/Achievement_High_score.png" id="5_anhhv"]
-[ext_resource type="AudioStream" uid="uid://2ium6kfyqpld" path="res://Audio/achievement.mp3" id="6_lsmnr"]
 
 [node name="AchievementScene" type="Node2D"]
 script = ExtResource("1_lkye7")
@@ -38,10 +37,6 @@ texture = ExtResource("2_g2lkr")
 [node name="AchievementBanner" type="Sprite2D" parent="."]
 position = Vector2(320, 240)
 texture = ExtResource("5_anhhv")
-
-[node name="AchievementSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_lsmnr")
-volume_db = -10.0
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
