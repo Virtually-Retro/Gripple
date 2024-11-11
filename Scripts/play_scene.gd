@@ -66,6 +66,7 @@ func set_random_pattern() -> void:
 	#Easy pattern for debugging when in Godot editor
 	if OS.is_debug_build():
 		pattern_id = 0
+		Game_Globals.tutorial_enabled = true
 	
 	$DestinationPattern.texture = load("res://Graphics/Pattern" + str(pattern_id) + ".png")
 	generate_random_grid()
@@ -207,7 +208,7 @@ func get_closest_spinner() -> int:
 
 
 func _on_game_video_timer_frame_changed() -> void:
-	if Game_Globals.audio_enabled:
+	if Game_Globals.audio_enabled and Game_Globals.current_game_timer_bonus > 0:
 		SoundManager.play_sound_by_name("countDownTimer.mp3", true)
 		
 	Game_Globals.current_game_timer_bonus -= 10
