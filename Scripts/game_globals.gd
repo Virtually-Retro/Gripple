@@ -5,30 +5,32 @@
 extends Node
 
 #Audio / Tutorial switch
-var audio_enabled: bool = true
-var tutorial_enabled: bool = true
+@onready var audio_enabled: bool = true
+@onready var tutorial_enabled: bool = true
 
 #High score Table
-var high_score: int = 0
-var best_time: int = 1000
-var fewest_moves: int = 1000
-var high_score_type: int = 0
+@onready var high_score: int = 0
+@onready var best_time: int = 1000
+@onready var fewest_moves: int = 1000
+@onready var high_score_type: int = 0
 
 #Difficulity flag
-var game_difficulty: int = 2
+@onready var game_difficulty: int = 2
 
 #Current Game Scores
-var current_game_move_count: int = 0
-var current_game_time: int = 0
-var current_game_timer_bonus: int = 100
-var current_game_score: int = 0
+@onready var current_game_move_count: int = 0
+@onready var current_game_time: int = 0
+@onready var current_game_timer_bonus: int = 100
+@onready var current_game_score: int = 0
 
 #Achievement flag
-var achievement_type: int = 0
+@onready var achievement_type: int = 0
 
 
 func _ready() -> void:
 	load_gamedata()
+	SoundManager.set_sound_allow_polyphony(true)
+	SoundManager.set_sound_enabled(audio_enabled)
 
 
 func _notification(what: int) -> void:
@@ -77,13 +79,10 @@ func load_gamedata() -> void:
 		game_difficulty = XmlTools.get_xml_key_data("game_difficulty", file_data).to_int()
 		if game_difficulty < 1:
 			game_difficulty = 1
-				
-		audio_enabled = true
+
 		if XmlTools.get_xml_key_data("audio_enabled", file_data) == "false":
 			audio_enabled = false
-		SoundManager.set_sound_enabled(audio_enabled)
-			
-		tutorial_enabled = true
+				
 		if XmlTools.get_xml_key_data("tutorial_enabled", file_data) == "false":
 			tutorial_enabled = false
 		

@@ -30,8 +30,8 @@ func play_sound_by_name(filename: String, pitch_shift: bool) -> void:
 # Play a loaded stream with a given ID, note the pitch shift
 # and additional functions if the stream is playing or paused
 func play_sound(soundID: int, pitch_shift: bool) -> void:
-	if soundID not in range(soundNodeNames.size()): return
 	if not soundEnabled: return # check for disabled sound state
+	if soundID not in range(soundNodeNames.size()): return
 	var soundNode: AudioStreamPlayer = get_node_or_null(soundNodeNames[soundID])
 	if soundNode != null: 
 		if soundAutoPause: # Auto pause and resume if flag is set
