@@ -20,9 +20,9 @@ boot_splash/minimum_display_time=1000
 
 [autoload]
 
-Game_Globals="*res://Scripts/game_globals.gd"
-XmlTools="*res://Scripts/xml_tools.gd"
 SoundManager="*res://Scripts/soundManager.gd"
+XmlTools="*res://Scripts/xml_tools.gd"
+Game_Globals="*res://Scripts/game_globals.gd"
 
 [debug]
 
